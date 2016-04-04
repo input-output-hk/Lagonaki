@@ -20,4 +20,4 @@ assemblyJarName in assembly := "lagonaki.jar"
 
 test in assembly := {}
 
-mainClass in assembly := Some("scorex.perma.Application")
+mainClass in assembly := Some("scorex.lagonaki.Application")
