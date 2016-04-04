@@ -19,3 +19,5 @@ name in Universal := name.value
 //name in UniversalSrc <<= name in Universal
 //
 //packageName in Universal := packageName.value
+
+enablePlugins(DockerPlugin)
