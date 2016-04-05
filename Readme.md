@@ -12,6 +12,11 @@ Download deb package from [releases](https://github.com/ScorexProject/PermaScore
 
 Compile code and run your node by typing `sbt start` 
 
+# Docker
+ 
+ If you want to start Lagonaki with Docker type `sudo sbt docker:publishLocal`
+
+
 # Create package
 
 For now it is only possible to create deb package with `sbt debian:packageBin` command
@@ -33,4 +38,5 @@ Run one or two peers on the local machine:
 * You can run first & second peers simultaneously by running "sbt startLocal"
 
 You can edit folders / other settings in settings.json file before running commands above.
+
 
