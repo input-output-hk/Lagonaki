@@ -22,6 +22,7 @@
   ],
   "maxRollback": 100,
   "offlineGeneration": true,
+  "testScript": true,
   "perma": {
     "treeDir": "/tmp/scorex/data1/tree/",
     "authDataStorage": "authDataStorage1.mapDB",

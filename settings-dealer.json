@@ -16,6 +16,7 @@
   "maxRollback": 100,
   "offlineGeneration": false,
   "cors": true,
+  "testScript": true,
   "perma": {
     "isTrustedDealer": true,
     "treeDir": "/opt/scorex/data/tree",

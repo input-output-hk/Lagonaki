@@ -147,7 +147,9 @@ object Application extends App with ScorexLogging {
 
   if (application.wallet.privateKeyAccounts().isEmpty) application.wallet.generateNewAccounts(1)
 
-  def testingScript(application: Application): Unit = {
+  if(application.settings.testScript) testingScript()
+
+  def testingScript(): Unit = {
     log.info("Going to execute testing scenario")
     log.info("Current state is:" + application.blockStorage.state)
     val wallet = application.wallet
