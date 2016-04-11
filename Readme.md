@@ -14,7 +14,7 @@ Compile code and run your node by typing `sbt start`
 
 # Docker
  
- If you want to start Lagonaki with Docker type `sudo sbt docker:publishLocal`
+ To start Lagonaki with the Docker, first build an image using the local Docker server wuth `sbt docker:publishLocal` command and then start lagonaki application `docker run -i "lagonaki:1.2.3"`
 
 
 # Create package

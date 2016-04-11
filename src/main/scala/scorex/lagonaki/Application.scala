@@ -147,7 +147,7 @@ object Application extends App with ScorexLogging {
 
   if (application.wallet.privateKeyAccounts().isEmpty) application.wallet.generateNewAccounts(1)
 
-  if(application.settings.testScript) testingScript()
+  if (application.settings.testScript) testingScript()
 
   def testingScript(): Unit = {
     log.info("Going to execute testing scenario")

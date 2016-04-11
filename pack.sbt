@@ -9,15 +9,15 @@ enablePlugins(JavaAppPackaging)
 enablePlugins(DebianPlugin)
 linuxPackageMappings in Debian := linuxPackageMappings.value
 name in Debian := name.value
-version in Debian := "1.2.3"
+version in Debian := version.value
 genChanges in Debian := new File("changelog.md")
 
 name in Universal := name.value
-//
-//name in UniversalDocs <<= name in Universal
-//
-//name in UniversalSrc <<= name in Universal
-//
-//packageName in Universal := packageName.value
 
-enablePlugins(DockerPlugin)
+enablePlugins(JavaAppPackaging)
+
+mappings in Universal <+= (packageBin in Compile) map { jar =>
+  jar -> ("lib/" + jar.getName)
+}
+
+dockerExposedPorts := Seq(9084, 9085)
