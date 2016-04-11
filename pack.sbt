@@ -21,3 +21,7 @@ mappings in Universal <+= (packageBin in Compile) map { jar =>
 }
 
 dockerExposedPorts := Seq(9084, 9085)
+
+mappings in Universal += {
+  file("settings.json") -> "settings.json"
+}
