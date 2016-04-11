@@ -2,7 +2,7 @@ organization := "org.consensusresearch"
 
 name := "lagonaki"
 
-version := "1.2.1"
+version := "1.2.3"
 
 scalaVersion := "2.11.8"
 
