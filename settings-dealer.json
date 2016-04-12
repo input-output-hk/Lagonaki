@@ -7,10 +7,10 @@
     "port": 9080,
     "maxConnections": 10
   },
-  "walletDir": "/opt/scorex/wallet",
+  "walletDir": "/opt/scorex/dealer/wallet",
   "walletPassword": "cookies",
   "walletSeed": "FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz",
-  "dataDir": "/opt/scorex/data",
+  "dataDir": "/opt/scorex/dealer/data",
   "rpcPort": 9081,
   "rpcAllowed": [],
   "maxRollback": 100,
@@ -19,7 +19,7 @@
   "testScript": true,
   "perma": {
     "isTrustedDealer": true,
-    "treeDir": "/opt/scorex/data/tree",
+    "treeDir": "/opt/scorex/dealer/data/tree",
     "authDataStorage": "permatree.db"
   },
   "blockGenerationDelay": 15000
