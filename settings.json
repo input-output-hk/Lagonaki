@@ -20,5 +20,6 @@
   "perma": {
     "treeDir": "/tmp/scorex/data/tree/",
     "authDataStorage": "permatree.db"
-  }
+  },
+  "cors": false
 }
