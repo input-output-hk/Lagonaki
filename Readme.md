@@ -6,7 +6,30 @@ This is permacoin implementation on top of Scorex framework.
 ## Run a node
 # Ubuntu
 
-Download deb package from [releases](https://github.com/ScorexProject/PermaScorex/releases), install it, run "lagonaki settings.json".
+Install Oracle Java8 JDK:
+
+`echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list`
+
+`echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list`
+
+`apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886`
+
+`apt-get update`
+
+`apt-get install oracle-java8-installer`
+
+and agree with license terms
+
+
+Run Lagonaki node
+
+Download deb package from [releases](https://github.com/ScorexProject/PermaScorex/releases)
+
+Install it
+
+`sudo dpkg -i lagonaki.deb`
+
+Run "lagonaki settings.json".
 
 # Other system
 
