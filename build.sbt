@@ -1,8 +1,12 @@
+import com.typesafe.config.ConfigFactory
+
 organization := "org.consensusresearch"
+
+val appConf = ConfigFactory.parseFile(new File("src/main/resources/lagonaki.conf")).resolve().getConfig("app")
 
 name := "lagonaki"
 
-version := "1.2.3"
+version := appConf.getString("version")
 
 scalaVersion := "2.11.8"
 
