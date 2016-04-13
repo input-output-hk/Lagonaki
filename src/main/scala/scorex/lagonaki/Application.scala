@@ -168,19 +168,12 @@ object Application extends App with ScorexLogging {
     Thread.sleep(3.seconds.toMillis)
 
     val genesisBlock = application.blockStorage.history.genesis
-    val genesisAccs = genesisBlock.transactions.flatMap(_ match {
-      case gtx: GenesisTransaction =>
-        Some(gtx.recipient)
-      case _ =>
-        log.error("Non-genesis tx in the genesis block!")
-        None
-    })
 
     def genPayment(recipient: Option[Account] = None, amtOpt: Option[Long] = None): Option[Transaction] = {
       val pkAccs = wallet.privateKeyAccounts().ensuring(_.nonEmpty)
       val senderAcc = pkAccs(Random.nextInt(pkAccs.size))
       val senderBalance = application.blockStorage.state.asInstanceOf[BalanceSheet].generationBalance(senderAcc)
-      val recipientAcc = recipient.getOrElse(genesisAccs(Random.nextInt(genesisAccs.size)))
+      val recipientAcc = recipient.getOrElse(pkAccs(Random.nextInt(pkAccs.size)))
       val fee = Random.nextInt(5).toLong + 1
       if (senderBalance - fee > 0) {
         val amt = amtOpt.getOrElse(Math.abs(Random.nextLong() % (senderBalance - fee)))
