@@ -11,6 +11,7 @@ import scorex.app.Application
 import scorex.consensus.mining.BlockGeneratorController._
 import scorex.lagonaki.settings.Constants
 import scorex.network.HistorySynchronizer
+import scorex.utils.ScorexLogging
 import spray.routing.Route
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -18,7 +19,7 @@ import scala.concurrent.Future
 
 @Api(value = "scorex", description = "General commands & information", position = 0)
 case class ScorexApiRoute(override val application: Application)(implicit val context: ActorRefFactory)
-  extends ApiRoute with CommonApiFunctions {
+  extends ApiRoute with CommonApiFunctions with ScorexLogging {
 
   override lazy val route =
     pathPrefix("scorex") {
@@ -42,8 +43,10 @@ case class ScorexApiRoute(override val application: Application)(implicit val co
   @ApiOperation(value = "Stop", notes = "Stop the app", httpMethod = "POST")
   def scorex: Route = path("stop") {
     jsonRoute({
-      Future(application.stopAll())
-      Json.obj("stopped" -> true).toString()
+      log.info("Request to stop application")
+//      Future(application.stopAll())
+//      Json.obj("stopped" -> true).toString()
+      "disabled"
     }, post)
   }
 
