@@ -48,7 +48,7 @@ dependencyOverrides in ThisBuild ++= Set(
   "org.bitlet" % "weupnp" % "0.1.4",
   "org.consensusresearch" % "scorex-basics_2.11" % "1.2.4-SNAPSHOT",
   "org.consensusresearch" % "scorex-consensus_2.11" % "1.2.4-SNAPSHOT",
-  "org.consensusresearch" % "scorex-perma_2.11" % "1.2.3",
+  "org.consensusresearch" % "scorex-perma_2.11" % "1.2.3-SNAPSHOT",
   "org.consensusresearch" % "scorex-transaction_2.11" % "1.2.4-SNAPSHOT",
   "org.consensusresearch" % "scrypto_2.11" % "1.0.4",
   "org.joda" % "joda-convert" % "1.7",
