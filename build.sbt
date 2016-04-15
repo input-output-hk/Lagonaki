@@ -16,7 +16,12 @@ libraryDependencies ++= Seq(
   "org.consensusresearch" %% "scorex-basics" % "1.2.+",
   "org.consensusresearch" %% "scorex-consensus" % "1.2.+",
   "org.consensusresearch" %% "scorex-perma" % "1.2.+",
-  "org.consensusresearch" %% "scorex-transaction" % "1.2.+"
+  "org.consensusresearch" %% "scorex-transaction" % "1.2.+",
+  "io.spray" %% "spray-testkit" % "1.+" % "test",
+  "org.scalatest" %% "scalatest" % "2.+" % "test",
+  "org.scalactic" %% "scalactic" % "2.+" % "test",
+  "org.scalacheck" %% "scalacheck" % "1.12.+" % "test",
+  "net.databinder.dispatch" %% "dispatch-core" % "+" % "test"
 )
 
 //assembly settings
