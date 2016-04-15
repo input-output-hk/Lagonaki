@@ -1,7 +1,7 @@
 package scorex.lagonaki
 
 import dispatch.{Http, url}
-import play.api.libs.json.{JsObject, Json}
+import play.api.libs.json.{JsValue, JsObject, Json}
 import scorex.transaction.TransactionSettings
 import scorex.utils._
 
@@ -39,5 +39,11 @@ object TestingCommons {
 
   def peerUrl(a: Application = application): String =
     "http://" + a.settings.bindAddress + ":" + a.settings.rpcPort
+
+  def getRequest(us: String, peer: String = peerUrl(application)): JsValue = {
+    val request = Http(url(peer + us).GET)
+    val response = Await.result(request, 10.seconds)
+    Json.parse(response.getResponseBody)
+  }
 
 }
