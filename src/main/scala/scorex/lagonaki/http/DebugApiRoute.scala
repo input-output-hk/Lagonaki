@@ -3,14 +3,14 @@ package scorex.lagonaki.http
 import javax.ws.rs.Path
 
 import akka.actor.ActorRefFactory
-import com.wordnik.swagger.annotations._
+import akka.http.scaladsl.server.Route
+import io.swagger.annotations._
 import play.api.libs.json.Json
 import scorex.api.http._
 import scorex.app.Application
 import scorex.crypto.encode.Base58
 import scorex.crypto.hash.FastCryptographicHash
 import scorex.transaction.state.database.blockchain.StoredState
-import spray.routing.Route
 
 @Api(value = "/debug", description = "Debug methods", position = 1)
 case class DebugApiRoute(override val application: Application)(implicit val context: ActorRefFactory)
@@ -35,11 +35,11 @@ case class DebugApiRoute(override val application: Application)(implicit val con
   ))
   def blocks: Route = {
     path("blocks" / IntNumber) { case howMany =>
-      jsonRoute {
+      getJsonRoute {
         Json.arr(application.blockStorage.history.lastBlocks(howMany).map { block =>
           val bytes = block.bytes
           Json.obj(bytes.length.toString -> Base58.encode(FastCryptographicHash(bytes)))
-        }).toString()
+        })
       }
     }
   }
@@ -51,8 +51,8 @@ case class DebugApiRoute(override val application: Application)(implicit val con
   ))
   def state: Route = {
     path("state") {
-      jsonRoute {
-        application.blockStorage.state.toString
+      getJsonRoute {
+        application.blockStorage.state.asInstanceOf[StoredState].toJson(None)
       }
     }
   }
@@ -64,8 +64,8 @@ case class DebugApiRoute(override val application: Application)(implicit val con
   ))
   def stateAt: Route = {
     path("state" / IntNumber) { case height =>
-      jsonRoute {
-        application.blockStorage.state.asInstanceOf[StoredState].toJson(Some(height)).toString
+      getJsonRoute {
+        application.blockStorage.state.asInstanceOf[StoredState].toJson(Some(height))
       }
     }
   }
@@ -77,12 +77,12 @@ case class DebugApiRoute(override val application: Application)(implicit val con
   ))
   def info: Route = {
     path("info") {
-      jsonRoute {
+      getJsonRoute {
         val state = application.blockStorage.state.asInstanceOf[StoredState]
         Json.obj(
           "stateHeight" -> state.stateHeight,
           "stateHash" -> state.hash
-        ).toString
+        )
       }
     }
   }
@@ -94,8 +94,8 @@ case class DebugApiRoute(override val application: Application)(implicit val con
   ))
   def settings: Route = {
     path("settings") {
-      jsonRoute {
-        application.settings.settingsJSON.toString()
+      getJsonRoute {
+        application.settings.settingsJSON
       }
     }
   }

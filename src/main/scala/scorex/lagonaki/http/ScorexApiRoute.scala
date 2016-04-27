@@ -3,8 +3,9 @@ package scorex.lagonaki.http
 import javax.ws.rs.Path
 
 import akka.actor.ActorRefFactory
+import akka.http.scaladsl.server.Route
 import akka.pattern.ask
-import com.wordnik.swagger.annotations._
+import io.swagger.annotations._
 import play.api.libs.json.Json
 import scorex.api.http.{ApiRoute, CommonApiFunctions}
 import scorex.app.Application
@@ -12,7 +13,6 @@ import scorex.consensus.mining.BlockGeneratorController._
 import scorex.lagonaki.settings.Constants
 import scorex.network.HistorySynchronizer
 import scorex.utils.ScorexLogging
-import spray.routing.Route
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -33,8 +33,8 @@ case class ScorexApiRoute(override val application: Application)(implicit val co
   ))
   def version: Route = {
     path("version") {
-      jsonRoute {
-        Json.obj("version" -> Constants.AgentName).toString()
+      getJsonRoute {
+        Json.obj("version" -> Constants.AgentName)
       }
     }
   }
@@ -42,18 +42,17 @@ case class ScorexApiRoute(override val application: Application)(implicit val co
   @Path("/stop")
   @ApiOperation(value = "Stop", notes = "Stop the app", httpMethod = "POST")
   def scorex: Route = path("stop") {
-    jsonRoute({
+    postJsonRoute{
       log.info("Request to stop application")
 //      Future(application.stopAll())
-//      Json.obj("stopped" -> true).toString()
-      "disabled"
-    }, post)
+      Json.obj("stopped" -> false)
+    }
   }
 
   @Path("/status")
   @ApiOperation(value = "Status", notes = "Get status of the running core(Offline/Syncing/Generating)", httpMethod = "GET")
   def status: Route = path("status") {
-    jsonRoute {
+    getJsonRoute {
       def bgf = (application.blockGenerator ? GetStatus).map(_.toString)
       def hsf = (application.historySynchronizer ? HistorySynchronizer.GetStatus).map(_.toString)
 
@@ -61,7 +60,7 @@ case class ScorexApiRoute(override val application: Application)(implicit val co
         Json.obj(
           "block_generator_status" -> statusesSeq.head,
           "history_synchronization_status" -> statusesSeq.tail.head
-        ).toString()
+        )
       }
     }
   }
