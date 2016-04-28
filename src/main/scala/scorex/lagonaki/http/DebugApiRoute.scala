@@ -12,6 +12,7 @@ import scorex.crypto.encode.Base58
 import scorex.crypto.hash.FastCryptographicHash
 import scorex.transaction.state.database.blockchain.StoredState
 
+@Path("/debug")
 @Api(value = "/debug", description = "Debug methods", position = 1)
 case class DebugApiRoute(override val application: Application)(implicit val context: ActorRefFactory)
   extends ApiRoute with CommonTransactionApiFunctions {
