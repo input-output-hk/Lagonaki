@@ -18,6 +18,7 @@
   "rpcAllowed": [],
   "maxRollback": 100,
   "blockGenerationDelay": 0,
+  "genesisTimestamp": 1460952000000,
   "perma": {
     "treeDir": "/tmp/scorex/data/tree/",
     "authDataStorage": "permatree.db"
