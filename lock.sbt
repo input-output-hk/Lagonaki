@@ -58,7 +58,6 @@ dependencyOverrides in ThisBuild ++= Set(
   "org.bitlet" % "weupnp" % "0.1.4",
   "org.codehaus.woodstox" % "stax2-api" % "3.1.4",
   "org.consensusresearch" % "scorex-basics_2.11" % "1.2.6",
-  "org.consensusresearch" % "scorex-consensus_2.11" % "1.2.6",
   "org.consensusresearch" % "scorex-perma_2.11" % "1.2.6",
   "org.consensusresearch" % "scorex-transaction_2.11" % "1.2.6",
   "org.consensusresearch" % "scrypto_2.11" % "1.0.4",
@@ -84,4 +83,4 @@ dependencyOverrides in ThisBuild ++= Set(
   "org.whispersystems" % "curve25519-java" % "0.2.4",
   "org.yaml" % "snakeyaml" % "1.12"
 )
-// LIBRARY_DEPENDENCIES_HASH 80d728645ca1c595e7b50613b8140e7ba4cd1d3a
+// LIBRARY_DEPENDENCIES_HASH 43c0657da817e4a34dfeabc9a1b2c8fe63e2aa78
