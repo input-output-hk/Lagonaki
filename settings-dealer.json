@@ -17,6 +17,7 @@
   "offlineGeneration": false,
   "cors": true,
   "testScript": true,
+  "apiKeyHash": "GmVvcpx1BRUPDZiADbZ7a6zgQV3Sgj2GhNoEiTH9Drdx",
   "perma": {
     "isTrustedDealer": true,
     "treeDir": "/opt/scorex/dealer/data/tree",
