@@ -12,10 +12,12 @@ scalaVersion := "2.11.8"
 
 resolvers += "SonaType" at "https://oss.sonatype.org/content/groups/public"
 
+val modulesVersion = "1.2.7"
+
 libraryDependencies ++= Seq(
-  "org.consensusresearch" %% "scorex-basics" % "1.2.+",
-  "org.consensusresearch" %% "scorex-perma" % "1.2.+",
-  "org.consensusresearch" %% "scorex-transaction" % "1.2.+",
+  "org.consensusresearch" %% "scorex-basics" % modulesVersion,
+  "org.consensusresearch" %% "scorex-perma" % modulesVersion,
+  "org.consensusresearch" %% "scorex-transaction" % modulesVersion,
   "io.spray" %% "spray-testkit" % "1.+" % "test",
   "org.scalatest" %% "scalatest" % "2.+" % "test",
   "org.scalactic" %% "scalactic" % "2.+" % "test",
