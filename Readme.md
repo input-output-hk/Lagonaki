@@ -33,7 +33,8 @@ Run "lagonaki settings.json".
 
 # Other system
 
-Compile code and run your node by typing `sbt start` 
+Compile code by typing `sbt recompile`
+Run a node with `java -jar target/scala-2.11/lagonaki.jar` command
 
 # Docker
  
