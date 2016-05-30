@@ -31,7 +31,7 @@ class Application(val settingsFilename: String) extends scorex.app.Application {
 
   override val applicationName = "lagonaki"
 
-  private val appConf = ConfigFactory.load("lagonaki").getConfig("app")
+  private val appConf = ConfigFactory.load().getConfig("app")
 
   override lazy val appVersion = {
     val raw = appConf.getString("version")
