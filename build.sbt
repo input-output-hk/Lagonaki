@@ -31,3 +31,10 @@ assemblyJarName in assembly := "lagonaki.jar"
 test in assembly := {}
 
 mainClass in assembly := Some("scorex.lagonaki.Application")
+
+assemblyMergeStrategy in assembly := {
+  case "application.conf" => MergeStrategy.concat
+  case x =>
+    val oldStrategy = (assemblyMergeStrategy in assembly).value
+    oldStrategy(x)
+}
