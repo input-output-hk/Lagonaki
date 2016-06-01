@@ -3,8 +3,8 @@
 This is permacoin implementation on top of Scorex framework.
 
 
-## Run a node
-# Ubuntu
+# Run a node
+## Ubuntu
 
 Install Oracle Java8 JDK:
 
@@ -31,18 +31,18 @@ Install it
 
 Run "lagonaki settings.json".
 
-# Other system
+### Create package
+
+For now it is only possible to create deb package with `sbt debian:packageBin` command
+
+## Other system
 
 Compile code by typing `sbt recompile`
 Run a node with `java -jar target/scala-2.11/lagonaki.jar` command
 
-# Docker
+## Docker
  
  To start Lagonaki with the Docker run `docker run -i -p 9085:9085  "scorex/lagonaki:1.2.7"`
-
-# Create package
-
-For now it is only possible to create deb package with `sbt debian:packageBin` command
 
 
 ## Run a private local network
