@@ -172,7 +172,7 @@ object Application extends App with ScorexLogging {
     def genPayment(recipient: Option[Account] = None, amtOpt: Option[Long] = None): Option[Transaction] = {
       val pkAccs = wallet.privateKeyAccounts().ensuring(_.nonEmpty)
       val senderAcc = pkAccs(Random.nextInt(pkAccs.size))
-      val senderBalance = application.blockStorage.state.asInstanceOf[BalanceSheet].generationBalance(senderAcc)
+      val senderBalance = application.blockStorage.state.asInstanceOf[BalanceSheet].balance(senderAcc.address)
       val recipientAcc = recipient.getOrElse(pkAccs(Random.nextInt(pkAccs.size)))
       val fee = Random.nextInt(5).toLong + 1
       if (senderBalance - fee > 0) {
