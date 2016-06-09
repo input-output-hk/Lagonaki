@@ -42,7 +42,7 @@ Run a node with `java -jar target/scala-2.11/lagonaki.jar` command
 
 ## Docker
  
- To start Lagonaki with the Docker run `docker run -i -p 9085:9085  "scorex/lagonaki:1.2.7"`
+ To start Lagonaki with the Docker run `docker run -i -p 9085:9085  "scorex/lagonaki:1.2.8"`
 
 
 ## Run a private local network
